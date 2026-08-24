@@ -38,3 +38,26 @@ Ingress routing
 Secrets management
 Workload identity
 PVC for PostgreSQL
+
+                    Internet
+                        |
+                        v
+                NGINX Ingress
+                      / \
+                     /   \
+                    /     \
+                   v       v
+
+            Frontend    Backend
+                           |
+                           |
+                           v
+
+                     PostgreSQL
+                           |
+                           v
+                          PVC
+
+Backend ---> Key Vault ---> Secrets
+
+Backend ---> Workload Identity ---> Azure AD
