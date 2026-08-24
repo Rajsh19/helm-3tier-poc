@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: db-migration-job
+
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+      - name: migrate
+
+        image: busybox
+
+        command:
+        - sh
+        - -c
+        - "echo Running Database Migration"
