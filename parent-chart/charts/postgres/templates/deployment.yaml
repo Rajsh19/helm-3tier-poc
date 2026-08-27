@@ -26,10 +26,22 @@ spec:
 
         env:
         - name: POSTGRES_DB
-          value: appdb
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: dbname
 
-        - name: POSTGRESS_PASSWORD
-          value: password123   
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: username
+
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: password
 
         volumeMounts:
         - name: postgres-storage
