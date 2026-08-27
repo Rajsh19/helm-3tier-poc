@@ -1,0 +1,31 @@
+name: Helm CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  validate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+
+      - name: Helm Lint
+        run: |
+          cd parent-chart
+          helm lint .
+
+      - name: Helm Template Validation
+        run: |
+          cd parent-chart
+          helm template test-release .
