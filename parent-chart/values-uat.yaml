@@ -1,3 +1,5 @@
+environment: uat
+
 frontend:
   replicaCount: 2
 

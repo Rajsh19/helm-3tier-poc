@@ -1,3 +1,5 @@
+environment: qa
+
 frontend:
   replicaCount: 1
 

@@ -1,3 +1,5 @@
+environment: prod
+
 frontend:
   replicaCount: 3
 
@@ -7,4 +9,3 @@ backend:
 postgres:
   storage:
     size: 20Gi
-``

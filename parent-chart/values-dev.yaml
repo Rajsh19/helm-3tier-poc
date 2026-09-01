@@ -1,3 +1,5 @@
+environment: dev
+
 frontend:
   replicaCount: 1
 
