@@ -1,11 +1,13 @@
-environment: dev
-
 frontend:
+  enabled: true
   replicaCount: 1
 
 backend:
+  enabled: true
   replicaCount: 1
 
 postgres:
+  enabled: true
+
   storage:
     size: 1Gi

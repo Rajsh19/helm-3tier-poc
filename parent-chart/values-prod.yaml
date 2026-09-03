@@ -1,11 +1,14 @@
 environment: prod
 
 frontend:
+  enabled: true
   replicaCount: 3
 
 backend:
+  enabled: true
   replicaCount: 3
 
 postgres:
+  enabled: true
   storage:
     size: 20Gi

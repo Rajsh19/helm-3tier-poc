@@ -17,14 +17,29 @@ spec:
     metadata:
       labels:
         app: backend
+        azure.workload.identity/use: "true"
 
     spec:
       serviceAccountName: backend-sa
+      automountServiceAccountToken: true
+
+      volumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: postgres-kv-provider
       
       containers:
       - name: backend
 
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+        volumeMounts:
+          - name: secrets-store-inline
+            mountPath: "/mnt/secrets-store"
+            readOnly: true
 
         command:
         - sh

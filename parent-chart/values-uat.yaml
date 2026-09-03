@@ -1,11 +1,14 @@
 environment: uat
 
 frontend:
+  enabled: true
   replicaCount: 2
 
 backend:
+  enabled: true
   replicaCount: 2
 
 postgres:
+  enabled: true
   storage:
     size: 5Gi

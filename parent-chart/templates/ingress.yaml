@@ -16,6 +16,7 @@ spec:
     http:
       paths:
 
+{{- if .Values.frontend.enabled }}
       - path: /
         pathType: Prefix
         backend:
@@ -23,6 +24,7 @@ spec:
             name: frontend-service
             port:
               number: 80
+{{- end }}
 
       - path: /api
         pathType: Prefix
